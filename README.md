@@ -29,7 +29,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/Pranavk-official/mern-boilerplate.git
+   git clone https://github.com/jayanthmankavil/latest-boilerplate.git
    cd mern-boilerplate
    ```
 
