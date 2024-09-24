@@ -1,0 +1,577 @@
+{
+  "frontend/eslint.config.js": {
+    "description": "Configures ESLint, a tool used for identifying and fixing problems in JavaScript code.",
+    "methods": [],
+    "imports": [
+      {
+        "name": "eslint",
+        "description": "ESLint library for linting JavaScript code."
+      }
+    ],
+    "key_logic_and_flow": "Configures the environment to recognize es6 and browser globals, and extends recommended ESLint rules for React apps.",
+    "configuration_details": {
+      "rules": {
+        "quotes": "single",
+        "semi": "always required"
+      },
+      "environments": [
+        "es6",
+        "browser"
+      ],
+      "plugins": [
+        "react"
+      ]
+    }
+  },
+  "frontend/index.html": {
+    "description": "The entry point for the web application, used as the template for rendering the React application in the browser.",
+    "methods": [],
+    "imports": [],
+    "key_logic_and_flow": "Contains a div with the id root where the React application will be injected by main.jsx.",
+    "configuration_details": {
+      "title": "React App",
+      "root_div": "div with id 'root'"
+    }
+  },
+  "frontend/package.json": {
+    "description": "Contains metadata about the project, including scripts, dependencies, and project configuration.",
+    "methods": [],
+    "imports": [],
+    "key_logic_and_flow": "Defines dependencies like react, react-dom, redux, and scripts like start, build, and test.",
+    "configuration_details": {
+      "scripts": {
+        "start": "Runs the development server",
+        "build": "Creates an optimized production build",
+        "test": "Runs the test suite"
+      },
+      "dependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "redux": "^4.1.0"
+      },
+      "devDependencies": {
+        "eslint": "^7.32.0",
+        "tailwindcss": "^2.1.2"
+      }
+    }
+  },
+  "frontend/package-lock.json": {
+    "description": "This file records the exact versions of dependencies installed in the project. It ensures consistent installs across different environments.",
+    "methods": [],
+    "imports": [],
+    "key_logic_and_flow": "Locks the exact versions of each package and their sub-dependencies.",
+    "configuration_details": {}
+  },
+  "frontend/postcss.config.js": {
+    "description": "Configures PostCSS, a tool used to transform CSS styles using plugins.",
+    "methods": [],
+    "imports": [
+      {
+        "name": "autoprefixer",
+        "description": "Automatically adds vendor prefixes to CSS rules to ensure compatibility across different browsers."
+      }
+    ],
+    "key_logic_and_flow": "Defines the plugins PostCSS should use when processing CSS files. In this case, autoprefixer is used to add browser-specific prefixes to CSS styles.",
+    "configuration_details": {
+      "plugins": [
+        "autoprefixer"
+      ]
+    }
+  },
+  "frontend/src/App.css": {
+    "description": "Contains global styles for the React application. Styles in this file affect all components unless scoped or overridden.",
+    "methods": [],
+    "imports": [],
+    "key_logic_and_flow": "Defines base styles and theme elements for the entire application, such as body margins, paddings, and font styles."
+  },
+  "frontend/src/App.jsx": {
+    "description": "Main App component that serves as the root of the React application. It sets up the main routes and provides context to other components.",
+    "methods": [
+      {
+        "name": "App",
+        "description": "The main functional component that renders the Router and all pages/components. It wraps the application with necessary providers like Redux and routing."
+      }
+    ],
+    "imports": [
+      {
+        "name": "BrowserRouter",
+        "description": "Used to handle routing within the React application."
+      },
+      {
+        "name": "Routes",
+        "description": "A component to manage all route definitions in the app."
+      },
+      {
+        "name": "Route",
+        "description": "Defines each individual route and the component to be rendered."
+      }
+    ],
+    "key_logic_and_flow": "The App component is wrapped in BrowserRouter for handling routes. It defines a set of routes (using the Route component) and renders corresponding components.",
+    "configuration_details": {}
+  },
+  "frontend/src/components/admin/AdminHeader.jsx": {
+    "description": "The header component for the admin section of the application. It contains navigation and branding relevant to admin users.",
+    "methods": [
+      {
+        "name": "AdminHeader",
+        "description": "Renders the header for admin pages, including admin-specific navigation and links."
+      }
+    ],
+    "imports": [
+      {
+        "name": "Link",
+        "description": "Allows for navigation within the application without refreshing the page."
+      }
+    ],
+    "key_logic_and_flow": "Displays the admin header with navigation links for admin-specific pages."
+  },
+  "frontend/src/components/admin/AdminPrivateRoute.jsx": {
+    "description": "A wrapper component that ensures only authenticated admin users can access certain routes. If the user is not an admin, they will be redirected.",
+    "methods": [
+      {
+        "name": "AdminPrivateRoute",
+        "description": "A wrapper component that checks if the current user has admin privileges before allowing access to the route."
+      }
+    ],
+    "imports": [
+      {
+        "name": "useAuth",
+        "description": "Custom hook that returns the authentication status and user role."
+      },
+      {
+        "name": "Route",
+        "description": "Defines a route in the React Router."
+      },
+      {
+        "name": "Redirect",
+        "description": "Redirects unauthorized users to the login page."
+      }
+    ],
+    "key_logic_and_flow": "Checks if the user is authenticated and has admin privileges, then either allows access or redirects them."
+  },
+  "frontend/src/components/auth/Header.jsx": {
+    "description": "Header component for the authentication-related pages (e.g., login, signup).",
+    "methods": [
+      {
+        "name": "AuthHeader",
+        "description": "Renders a simple header with branding for authentication pages."
+      }
+    ],
+    "imports": [],
+    "key_logic_and_flow": "Renders a simple, minimal header for login or signup pages."
+  },
+  "frontend/src/components/landing/CtaSection.jsx": {
+    "description": "A call-to-action section on the landing page, prompting users to take a specific action such as signing up or contacting the company.",
+    "methods": [
+      {
+        "name": "CtaSection",
+        "description": "Renders a section with a CTA button and accompanying text."
+      }
+    ],
+    "imports": [],
+    "key_logic_and_flow": "Displays a call-to-action button, usually linking to signup or contact pages."
+  },
+  "frontend/src/components/landing/FeatureSection.jsx": {
+    "description": "Displays features of the application in a structured layout, often with icons and text.",
+    "methods": [
+      {
+        "name": "FeatureSection",
+        "description": "Renders a section showcasing the key features of the application."
+      }
+    ],
+    "imports": [],
+    "key_logic_and_flow": "Displays a grid or list of features with descriptions and visuals."
+  },
+  "frontend/src/components/landing/HeroSection.jsx": {
+    "description": "Displays the hero section of the landing page, typically including a title, subtitle, and a call-to-action button.",
+    "methods": [
+      {
+        "name": "HeroSection",
+        "description": "Renders a styled hero section with heading, text, and CTA button."
+      }
+    ],
+    "imports": [
+      {
+        "name": "Link",
+        "description": "A link component from React Router used for navigation within the application."
+      }
+    ],
+    "key_logic_and_flow": "Renders the hero section with customizable text, buttons, and other elements."
+  },
+  "frontend/src/components/landing/LandingPage.jsx": {
+    "description": "The main landing page of the application that displays various sections such as the Hero, Features, and CTA sections.",
+    "methods": [
+      {
+        "name": "LandingPage",
+        "description": "Renders the landing page layout and imports all sub-sections like Hero, Features, and CTA."
+      }
+    ],
+    "imports": [
+      {
+        "name": "HeroSection",
+        "description": "Displays the hero section at the top of the landing page."
+      },
+      {
+        "name": "FeatureSection",
+        "description": "Displays the key features of the product."
+      },
+      {
+        "name": "CtaSection",
+        "description": "Renders a call-to-action section at the bottom of the landing page."
+      }
+    ],
+    "key_logic_and_flow": "Renders the landing page layout with all relevant sections."
+  },
+  "frontend/src/components/PrivateRoute.jsx": {
+    "description": "A component that ensures only authenticated users can access certain routes.",
+    "methods": [
+      {
+        "name": "PrivateRoute",
+        "description": "Wraps around routes to check if the user is authenticated, redirecting them to login if not."
+      }
+    ],
+    "imports": [
+      {
+        "name": "Route",
+        "description": "Defines a route in the React Router."
+      },
+      {
+        "name": "Redirect",
+        "description": "Redirects users to the login page if they are not authenticated."
+      },
+      {
+        "name": "useAuth",
+        "description": "Custom hook that returns the authentication status of the user."
+      }
+    ],
+    "key_logic_and_flow": "The component checks authentication status using useAuth. If the user is authenticated, it renders the child component, otherwise it redirects to the login page."
+  },
+  "frontend/src/components/ProtectedRoute.jsx": {
+    "description": "A component that ensures certain routes are accessible only to authorized users based on specific conditions.",
+    "methods": [
+      {
+        "name": "ProtectedRoute",
+        "description": "Similar to PrivateRoute but includes additional authorization checks (e.g., roles)."
+      }
+    ],
+    "imports": [
+      {
+        "name": "Route",
+        "description": "Defines a route in the React Router."
+      },
+      {
+        "name": "useAuth",
+        "description": "Custom hook that returns the authentication status and roles of the user."
+      }
+    ],
+    "key_logic_and_flow": "Checks if the user is authenticated and has the required roles/permissions, allowing or denying access accordingly."
+  },
+  "frontend/src/pages/Home.jsx": {
+    "description": "The Home page component of the application. This is the main entry point after the user logs in.",
+    "methods": [
+      {
+        "name": "Home",
+        "description": "Renders the home/dashboard page with user-specific content."
+      }
+    ],
+    "imports": [
+      {
+        "name": "useSelector",
+        "description": "A hook from React Redux to access the state from the Redux store."
+      },
+      {
+        "name": "useDispatch",
+        "description": "A hook from React Redux to dispatch actions to the Redux store."
+      }
+    ],
+    "key_logic_and_flow": "Renders the main dashboard or summary view for the user after they log in. It connects to the Redux store to pull user-specific data and renders the appropriate content based on the user's state."
+  },
+  "frontend/src/pages/Profile.jsx": {
+    "description": "Displays the user's profile information. Allows the user to view and edit their details.",
+    "methods": [
+      {
+        "name": "Profile",
+        "description": "Renders the profile page, fetching the user's information and providing forms for editing."
+      }
+    ],
+    "imports": [
+      {
+        "name": "useSelector",
+        "description": "A hook from React Redux to access the user's profile data from the Redux store."
+      }
+    ],
+    "key_logic_and_flow": "Displays the user's profile details, pulling data from the Redux store and allowing the user to update their information."
+  },
+  "backend/app.js": {
+    "description": "The entry point for the backend application. It initializes the Express application, sets up middleware, connects to the MongoDB database, and starts the server.",
+    "methods": [],
+    "imports": [
+      {
+        "name": "express",
+        "description": "Express.js framework is used to create the HTTP server and manage routing, middleware, and request handling."
+      },
+      {
+        "name": "dotenv",
+        "description": "Loads environment variables from a .env file into process.env, allowing the app to access configuration details like the database URL."
+      },
+      {
+        "name": "db",
+        "description": "Database connection file (config/db.js) responsible for connecting the app to MongoDB using Mongoose."
+      },
+      {
+        "name": "routes",
+        "description": "Imports routes for handling requests to different endpoints (adminRoute, authRoute, userRoute)."
+      }
+    ],
+    "key_logic_and_flow": "Initializes the Express server, connects to MongoDB, sets up global middleware for parsing requests, defines API routes, and starts the server.",
+    "configuration_details": {
+      "port": "The port is defined in environment variables and used to start the server."
+    }
+  },
+  "backend/config/db.js": {
+    "description": "Responsible for establishing a connection to the MongoDB database using Mongoose.",
+    "methods": [
+      {
+        "name": "connectDB",
+        "description": "An asynchronous function that attempts to connect to the MongoDB database using the connection string from environment variables. Logs connection status or errors."
+      }
+    ],
+    "imports": [
+      {
+        "name": "mongoose",
+        "description": "A MongoDB object modeling tool used to create schemas, models, and handle connections to MongoDB."
+      }
+    ],
+    "key_logic_and_flow": "Establishes a connection to MongoDB and logs whether the connection is successful or if there is an error."
+  },
+  "backend/controllers/adminController.js": {
+    "description": "Handles administrative actions, such as managing users, creating and editing data. This controller is protected by admin authentication.",
+    "methods": [
+      {
+        "name": "getAdminData",
+        "description": "Fetches data specific to the admin user. This could include statistics, user management data, etc."
+      },
+      {
+        "name": "addAdmin",
+        "description": "Creates a new admin user, typically used for adding new admin accounts."
+      },
+      {
+        "name": "deleteAdmin",
+        "description": "Deletes an existing admin user from the database."
+      }
+    ],
+    "imports": [
+      {
+        "name": "Admin",
+        "description": "Admin model that interacts with the admin collection in MongoDB."
+      },
+      {
+        "name": "verifyAdmin",
+        "description": "Middleware used to verify if the current user has admin privileges."
+      }
+    ],
+    "key_logic_and_flow": "Defines admin-related actions like fetching admin data, creating and deleting admin users."
+  },
+  "backend/controllers/authController.js": {
+    "description": "Handles user authentication, including login, registration, and password management. Generates JWT tokens for session management.",
+    "methods": [
+      {
+        "name": "register",
+        "description": "Registers a new user by checking if the username already exists, hashing the password, and saving the user to the database."
+      },
+      {
+        "name": "login",
+        "description": "Logs in a user by verifying credentials (username and password) and generates a JWT token for session management."
+      }
+    ],
+    "imports": [
+      {
+        "name": "User",
+        "description": "The User model for interacting with the user collection in the database."
+      },
+      {
+        "name": "bcrypt",
+        "description": "Library used for hashing and comparing user passwords for security."
+      },
+      {
+        "name": "jsonwebtoken",
+        "description": "Generates and verifies JWT tokens used for session management."
+      }
+    ],
+    "key_logic_and_flow": "Defines the registration and login processes, including password hashing with bcrypt and JWT token generation for session management."
+  },
+  "backend/controllers/userController.js": {
+    "description": "Manages actions related to users, such as fetching user profiles, updating user information, and managing user-specific data.",
+    "methods": [
+      {
+        "name": "getUserProfile",
+        "description": "Fetches and returns the profile data of the currently authenticated user."
+      },
+      {
+        "name": "updateUserProfile",
+        "description": "Updates the profile information of the authenticated user."
+      }
+    ],
+    "imports": [
+      {
+        "name": "User",
+        "description": "The User model used to interact with the user data in MongoDB."
+      }
+    ],
+    "key_logic_and_flow": "Provides endpoints for fetching and updating user profile information."
+  },
+  "backend/models/adminModel.js": {
+    "description": "Defines the schema and model for admin users, specifying what fields and data types admin documents in MongoDB should have.",
+    "methods": [],
+    "imports": [
+      {
+        "name": "mongoose",
+        "description": "Used to define schemas and models for MongoDB collections."
+      }
+    ],
+    "key_logic_and_flow": "Defines the schema for admin users, including fields like username, password, and roles."
+  },
+  "backend/models/userModel.js": {
+    "description": "Defines the schema and model for user data, including fields like username, email, password, and profile details.",
+    "methods": [],
+    "imports": [
+      {
+        "name": "mongoose",
+        "description": "Used to define schemas and models for MongoDB collections."
+      }
+    ],
+    "key_logic_and_flow": "Defines the schema for users in the MongoDB database, including necessary validations and fields like username, email, and password."
+  },
+  "backend/routes/adminRoute.js": {
+    "description": "Defines routes for admin-specific actions, including viewing and managing users, admins, and other protected resources.",
+    "methods": [],
+    "imports": [
+      {
+        "name": "express.Router",
+        "description": "Router method from Express used to define and manage route handlers."
+      },
+      {
+        "name": "adminController",
+        "description": "Controller that contains the logic for admin-related actions."
+      },
+      {
+        "name": "verifyAdmin",
+        "description": "Middleware to verify that the current user has admin privileges before allowing access to these routes."
+      }
+    ],
+    "key_logic_and_flow": "Defines admin-specific routes for managing users, admins, and other resources, protected by the verifyAdmin middleware."
+  },
+  "backend/routes/authRoute.js": {
+    "description": "Defines authentication routes, including login, registration, and logout endpoints.",
+    "methods": [],
+    "imports": [
+      {
+        "name": "express.Router",
+        "description": "Router method from Express used to define route handlers."
+      },
+      {
+        "name": "authController",
+        "description": "Controller that contains logic for authentication-related actions (login, registration)."
+      }
+    ],
+    "key_logic_and_flow": "Defines authentication routes like login, registration, and logout. These routes handle password validation, session management, and user registration."
+  },
+  "backend/routes/userRoute.js": {
+    "description": "Defines routes for user-specific actions, such as fetching and updating user profiles.",
+    "methods": [],
+    "imports": [
+      {
+        "name": "express.Router",
+        "description": "Router method from Express used to define route handlers."
+      },
+      {
+        "name": "userController",
+        "description": "Controller that contains the logic for user-related actions (profile fetch, profile update)."
+      },
+      {
+        "name": "verifyUser",
+        "description": "Middleware to verify that the current user is authenticated before allowing access to these routes."
+      }
+    ],
+    "key_logic_and_flow": "Defines user-specific routes for viewing and updating profile information, protected by verifyUser middleware."
+  },
+  "backend/utils/error.js": {
+    "description": "Utility for handling errors across the backend application. Contains functions for generating and logging errors.",
+    "methods": [
+      {
+        "name": "handleError",
+        "description": "Handles application-wide errors and logs them for debugging purposes."
+      }
+    ],
+    "imports": [],
+    "key_logic_and_flow": "Defines error handling logic and utility functions used throughout the application."
+  },
+  "backend/utils/verifyAdmin.js": {
+    "description": "Middleware to verify if the current user has admin privileges before allowing access to admin routes.",
+    "methods": [
+      {
+        "name": "verifyAdmin",
+        "description": "Checks the user's token and roles to ensure they have admin privileges."
+      }
+    ],
+    "imports": [
+      {
+        "name": "jsonwebtoken",
+        "description": "Used to verify the JWT token and extract the user's roles."
+      }
+    ],
+    "key_logic_and_flow": "Verifies the user's JWT token and checks if they have the required admin privileges to access certain routes."
+  },
+  "backend/utils/verifyUser.js": {
+    "description": "Middleware to verify if the current user is authenticated before allowing access to user routes.",
+    "methods": [
+      {
+        "name": "verifyUser",
+        "description": "Checks the user's token and verifies if the user is authenticated."
+      }
+    ],
+    "imports": [
+      {
+        "name": "jsonwebtoken",
+        "description": "Used to verify the JWT token and extract user information."
+      }
+    ],
+    "key_logic_and_flow": "Verifies the user's JWT token to check if they are authenticated before granting access to user routes."
+  },
+  "package.json": {
+    "description": "This file contains metadata and configuration for the MERN stack project. It defines the project's name, version, scripts, dependencies, and devDependencies.",
+    "methods": [],
+    "imports": [],
+    "key_logic_and_flow": "This file defines scripts for setting up and running both the frontend and backend, and it manages the dependencies required by the application.",
+    "configuration_details": {
+      "name": "mern-boilerplate",
+      "version": "1.0.0",
+      "description": "A minimal boilerplate for MERN stack projects",
+      "main": "app.js",
+      "type": "module",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "backend-install": "npm install",
+        "frontend-install": "npm install --prefix frontend",
+        "server": "nodemon backend/app.js",
+        "client": "npm run dev --prefix frontend",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+      },
+      "dependencies": {
+        "bcrypt": "^5.1.1",
+        "bcryptjs": "^2.4.3",
+        "cookie-parser": "^1.4.6",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.5.4"
+      },
+      "devDependencies": {
+        "concurrently": "^8.2.2",
+        "nodemon": "^3.1.4"
+      }
+    }
+  }
+
+}
+
